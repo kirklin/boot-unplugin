@@ -121,3 +121,8 @@ build({
 ```
 
 <br></details>
+
+
+## License
+
+[MIT](./LICENSE) License © 2022 [Kirk Lin](https://github.com/kirklin)
