@@ -7,6 +7,6 @@ export default createUnplugin<Options | undefined>(options => ({
     return id.endsWith("main.ts");
   },
   transform(code) {
-    return code.replace("__UNPLUGIN__", `Hello Unplugin! ${options}`);
+    return code.replace("__UNPLUGIN__", `Hello Unplugin! ${JSON.stringify(options)}`);
   },
 }));

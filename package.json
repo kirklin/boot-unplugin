@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "packageManager": "pnpm@7.1.1",
   "description": "Register global imports on demand for Vite and Webpack",
+  "author": "Kirk Lin <https://github.com/kirklin>",
   "license": "MIT",
+  "funding": "https://www.buymeacoffee.com/linkirk",
   "homepage": "https://github.com/kirklin/boot-unplugin#readme",
   "repository": {
     "type": "git",

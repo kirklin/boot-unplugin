@@ -6,7 +6,8 @@ import chalk from "chalk";
 
 async function run() {
   // fix cjs exports
-  const files = await fg("*.cjs", {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
+  const files: string[] = await fg("*.cjs", {
     ignore: ["chunk-*"],
     absolute: true,
     cwd: resolve(dirname(fileURLToPath(import.meta.url)), "../dist"),
@@ -20,4 +21,4 @@ async function run() {
   }
 }
 
-run();
+void run();
