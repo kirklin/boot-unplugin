@@ -87,23 +87,23 @@
     "test": "vitest"
   },
   "dependencies": {
-    "unplugin": "^1.0.1"
+    "unplugin": "^1.1.0"
   },
   "devDependencies": {
-    "@kirklin/eslint-config": "^0.2.1",
-    "@types/node": "^18.11.17",
-    "bumpp": "^8.2.1",
+    "@kirklin/eslint-config": "^0.2.7",
+    "@types/node": "^18.14.5",
+    "bumpp": "^9.0.0",
     "chalk": "^5.2.0",
-    "eslint": "^8.30.0",
+    "eslint": "^8.35.0",
     "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
-    "nodemon": "^2.0.20",
-    "rimraf": "^3.0.2",
-    "rollup": "^3.7.5",
-    "tsup": "^6.5.0",
-    "typescript": "^4.9.4",
-    "vite": "^4.0.2",
-    "vitest": "^0.26.0",
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.2.0",
+    "rollup": "^3.18.0",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "vitest": "^0.29.2",
     "webpack": "^5.75.0"
   }
 }
