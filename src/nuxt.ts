@@ -14,4 +14,3 @@ export default function (options: Options = {}, nuxt: any) {
     config.plugins.push(unplugin.vite(options));
   });
 }
-
