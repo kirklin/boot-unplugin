@@ -1,17 +1,25 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment */
+import { addVitePlugin, addWebpackPlugin, defineNuxtModule } from "@nuxt/kit";
+import vite from "./vite";
+import webpack from "./webpack";
 import type { Options } from "./types";
-import unplugin from ".";
+import "@nuxt/schema";
 
-export default function (options: Options = {}, nuxt: any) {
-  // install webpack plugin
-  nuxt.hook("webpack:config", (config: any) => {
-    config.plugins = config.plugins || [];
-    config.plugins.unshift(unplugin.webpack(options));
-  });
+export interface ModuleOptions extends Options {
 
-  // install vite plugin
-  nuxt.hook("vite:extendConfig", (config: any) => {
-    config.plugins = config.plugins || [];
-    config.plugins.push(unplugin.vite(options));
-  });
 }
+
+export default defineNuxtModule<ModuleOptions>({
+  meta: {
+    name: "nuxt-unplugin-starter",
+    configKey: "unpluginStarter",
+  },
+  defaults: {
+    // ...default options
+  },
+  setup(options, nuxt) {
+    addVitePlugin(() => vite(options));
+    addWebpackPlugin(() => webpack(options));
+
+    // ...
+  },
+});
