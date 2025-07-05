@@ -12,7 +12,7 @@ To use this template, clone it down using:
 npx degit kirklin/boot-unplugin my-unplugin
 ```
 
-And do a global replace of `boot-unplugin` with your plugin name.
+And do a global replacement of `boot-unplugin` with your plugin name.
 
 Then you can start developing your unplugin 🔥
 
@@ -59,7 +59,6 @@ export default {
 
 <br></details>
 
-
 <details>
 <summary>Webpack</summary><br>
 
@@ -80,11 +79,11 @@ module.exports = {
 
 ```ts
 // nuxt.config.js
-export default {
-  buildModules: [
+export default defineNuxtConfig({
+  modules: [
     ["boot-unplugin/nuxt", { /* options */ }],
   ],
-};
+});
 ```
 
 > This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
@@ -111,9 +110,9 @@ module.exports = {
 <summary>esbuild</summary><br>
 
 ```ts
+import Starter from "boot-unplugin/esbuild";
 // esbuild.config.js
 import { build } from "esbuild";
-import Starter from "boot-unplugin/esbuild";
 
 build({
   plugins: [Starter()],
@@ -121,7 +120,6 @@ build({
 ```
 
 <br></details>
-
 
 ## License
 

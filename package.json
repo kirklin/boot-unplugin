@@ -2,8 +2,8 @@
   "name": "boot-unplugin",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@8.8.0",
-  "description": "Register global imports on demand for Vite and Webpack",
+  "packageManager": "pnpm@10.11.0",
+  "description": "",
   "author": "Kirk Lin <https://github.com/kirklin>",
   "license": "MIT",
   "funding": "https://www.buymeacoffee.com/linkirk",
@@ -23,46 +23,21 @@
     "transform"
   ],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./vite": {
-      "types": "./dist/vite.d.ts",
-      "import": "./dist/vite.js",
-      "require": "./dist/vite.cjs"
-    },
-    "./webpack": {
-      "types": "./dist/webpack.d.ts",
-      "import": "./dist/webpack.js",
-      "require": "./dist/webpack.cjs"
-    },
-    "./rollup": {
-      "types": "./dist/rollup.d.ts",
-      "import": "./dist/rollup.js",
-      "require": "./dist/rollup.cjs"
-    },
-    "./esbuild": {
-      "types": "./dist/esbuild.d.ts",
-      "import": "./dist/esbuild.js",
-      "require": "./dist/esbuild.cjs"
-    },
-    "./nuxt": {
-      "types": "./dist/nuxt.d.ts",
-      "import": "./dist/nuxt.js",
-      "require": "./dist/nuxt.cjs"
-    },
-    "./types": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/types.js",
-      "require": "./dist/types.cjs"
-    },
-    "./*": "./*"
+    ".": "./dist/index.js",
+    "./astro": "./dist/astro.js",
+    "./esbuild": "./dist/esbuild.js",
+    "./farm": "./dist/farm.js",
+    "./nuxt": "./dist/nuxt.js",
+    "./rollup": "./dist/rollup.js",
+    "./rspack": "./dist/rspack.js",
+    "./types": "./dist/types.js",
+    "./vite": "./dist/vite.js",
+    "./webpack": "./dist/webpack.js",
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
@@ -75,18 +50,18 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch src",
-    "build:fix": "esno scripts/postbuild.ts",
+    "build": "tsdown",
+    "dev": "tsdown -w",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "play": "npm -C playground run dev",
     "prepublishOnly": "npm run build",
-    "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
+    "release": "bumpp && pnpm publish",
+    "start": "tsx src/index.ts",
     "test": "vitest"
   },
   "peerDependencies": {
+    "@farmfe/core": ">=1",
     "@nuxt/kit": "^3",
     "@nuxt/schema": "^3",
     "esbuild": "*",
@@ -95,7 +70,16 @@
     "webpack": "^4 || ^5"
   },
   "peerDependenciesMeta": {
-    "webpack": {
+    "@farmfe/core": {
+      "optional": true
+    },
+    "@nuxt/kit": {
+      "optional": true
+    },
+    "@nuxt/schema": {
+      "optional": true
+    },
+    "esbuild": {
       "optional": true
     },
     "rollup": {
@@ -104,36 +88,27 @@
     "vite": {
       "optional": true
     },
-    "esbuild": {
-      "optional": true
-    },
-    "@nuxt/kit": {
-      "optional": true
-    },
-    "@nuxt/schema": {
+    "webpack": {
       "optional": true
     }
   },
   "dependencies": {
-    "unplugin": "^1.5.0"
+    "unplugin": "^2.3.4"
   },
   "devDependencies": {
-    "@kirklin/eslint-config": "^0.5.6",
-    "@nuxt/kit": "^3.6.5",
-    "@nuxt/schema": "^3.6.5",
-    "@types/node": "^20.8.3",
-    "bumpp": "^9.2.0",
-    "chalk": "^5.3.0",
-    "eslint": "^8.51.0",
-    "esno": "^0.17.0",
-    "fast-glob": "^3.3.1",
-    "nodemon": "^3.0.1",
-    "rimraf": "^5.0.5",
-    "rollup": "^4.0.2",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.11",
-    "vitest": "^0.34.6",
-    "webpack": "^5.88.2"
+    "@kirklin/eslint-config": "^5.0.0",
+    "@nuxt/kit": "^3.17.4",
+    "@nuxt/schema": "^3.17.4",
+    "@types/node": "^22.15.21",
+    "bumpp": "^10.1.1",
+    "eslint": "^9.27.0",
+    "nodemon": "^3.1.10",
+    "rollup": "^4.41.0",
+    "tsdown": "^0.12.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4",
+    "webpack": "^5.99.9"
   }
 }
